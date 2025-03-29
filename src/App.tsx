@@ -5,21 +5,21 @@ import sound from "./sounds/mem.mp3";
 function App() {
   const [count, setCount] = useState(0)
   const [text, setText] = useState("")
-  const [playActive] = useSound(
-    '/sounds/mem.mp3',
-    { volume: 0.9 }
-  );
   function play(){
     new Audio(sound).play()
   }
   const handleChange = (event: any) => {
     if (event.target.value == "да"){
       play()
+      setCount(count+1)
     }
     setText(event.target.value);
   }
   return (
     <>
+    <h1>
+      Сколько раз сосал? {count}
+    </h1>
       <div className='container'>
         <input className='input' onChange={handleChange} placeholder='СОСАЛ?  (ЕГОР СКАЖИ ДА ПОЖАЛУЙСТА)'>
 
